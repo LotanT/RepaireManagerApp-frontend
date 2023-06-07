@@ -47,7 +47,6 @@ const EditUserForm = ({ user }) => {
   const onPasswordChanged = (e) => setPassword(e.target.value);
 
   const onRolesChanged = (e) => {
-    console.log(e.target.value);
     const values = Array.from(
       e.target.selectedOptions,
       (option) => option.value
@@ -58,7 +57,6 @@ const EditUserForm = ({ user }) => {
   const onActiveChanged = () => setActive((prev) => !prev);
 
   const onSaveUserClicked = async (e) => {
-    console.log(user.id, username, roles, active);
     if (password) {
       await updateUser({ id: user.id, username, password, roles, active });
     } else {

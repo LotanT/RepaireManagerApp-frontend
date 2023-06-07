@@ -31,7 +31,6 @@ const NewNoteForm = ({ users }) => {
 
   const onSaveNoteClicked = async (e) => {
     e.preventDefault();
-    console.log(userId, title, text);
     if (canSave) {
       await addNewNote({ user: userId, title, text });
     }

@@ -3,22 +3,22 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { selectNoteById } from './NotesApiSlice';
+import { selectAllNotes, selectNoteById } from './NotesApiSlice';
 
 const Note = ({ noteId }) => {
   const note = useSelector((state) => selectNoteById(state, noteId));
+  const notes = useSelector(selectAllNotes);
   const navigate = useNavigate();
-
+  if (!note) console.log(noteId, notes);
   if (note) {
     const created = new Date(note.createdAt).toLocaleString('eu-US', {
       day: 'numeric',
       month: 'long',
     });
-    const updated = new Date(note.updateAt).toLocaleString('eu-US', {
+    const updated = new Date(note.updatedAt).toLocaleString('eu-US', {
       day: 'numeric',
       month: 'long',
     });
-
     const handleEdit = () => navigate(`/dash/notes/${noteId}`);
 
     return (
