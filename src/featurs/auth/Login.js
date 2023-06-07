@@ -5,6 +5,7 @@ import { useLoginMutation } from './authApiSlice';
 import { useEffect } from 'react';
 import { setCredentials } from './AuthSlice';
 import usePersist from '../../hooks/usePersist';
+import { PulseLoader } from 'react-spinners';
 
 const Login = () => {
   const userRef = useRef();
@@ -51,7 +52,7 @@ const Login = () => {
 
   const errClass = errMsg ? 'errmsg' : 'offscreen';
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <PulseLoader color={'#fff'} />;
 
   const content = (
     <section className="public">

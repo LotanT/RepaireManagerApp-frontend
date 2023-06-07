@@ -10,6 +10,7 @@ import {
   faUserPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import useAuth from '../hooks/useAuth';
+import { PulseLoader } from 'react-spinners';
 
 const DASH_REGEX = /^\/dash(\/)?$/;
 const NOTES_REGEX = /^\/dash\/notes(\/)?$/;
@@ -27,7 +28,7 @@ const DashHeader = () => {
     if (isSuccess) navigate('/');
   }, [isSuccess, navigate]);
 
-  if (isLoading) return <p>Loading Out...</p>;
+  if (isLoading) return <PulseLoader color={'#fff'} />;
 
   if (isError) return <p>Error: {error?.data?.message}</p>;
 

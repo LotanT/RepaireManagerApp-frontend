@@ -14,8 +14,10 @@ import Prefetch from './featurs/auth/Prefetch';
 import PersistLogin from './featurs/auth/PersistLogin';
 import RequireAuth from './featurs/auth/RequireAuth';
 import { ROLES } from './config/roles';
+import useTitle from './hooks/useTitle';
 
 function App() {
+  useTitle('DanD Repaires');
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
